@@ -1,0 +1,8 @@
+{
+  "name": "kettle-challenge-web-dev",
+  "description": "Kettle Challenge Web Dev",
+  "scripts": {
+    "start": "npx serve workspace"
+  },
+  "license": "UNLICENSED"
+}
