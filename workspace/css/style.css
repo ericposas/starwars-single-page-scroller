@@ -4,6 +4,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,400;0,800;0,900;1,700;1,800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
 /************
   VARIABLES
@@ -11,6 +12,7 @@
 
 :root {
   --light-gray: #e1e1e1;
+  --gray: #b7b7b7;
   --med-gray: #908f94;
   --dark-gray: #3e3c47;
   --header-gray: #514f5a;
@@ -53,7 +55,7 @@ header nav a {
   color: var(--header-gray);
 }
 
-header > nav {
+header nav {
   width: 100%;
   position: fixed;
   font-weight: bold;
@@ -61,7 +63,7 @@ header > nav {
   background-color: var(--light-gray);
 }
 
-header > nav ul li {
+header nav ul li {
   line-height: 1;
   padding: 0 10px 2px 10px;
   display: inline;
@@ -75,13 +77,13 @@ header > nav ul li {
   color: var(--header-gray);
 }
 
-header > nav ul li a:hover,
-header > nav ul li a:active {
+header nav ul li a:hover,
+header nav ul li a:active {
   color: var(--dark-teal);
 }
 
-header > nav ul li:hover,
-header > nav ul li:active {
+header nav ul li:hover,
+header nav ul li:active {
   border-color: var(--dark-teal);
 }
 
@@ -130,16 +132,8 @@ h3 {
   color: var(--med-gray);
 }
 
-main {
-  padding: 0 0 200px 0;
-}
-
 section {
   margin: auto;
-}
-
-section::after {
-  content: "§";
 }
 
 footer {
@@ -167,7 +161,7 @@ footer nav ul li:last-of-type {
   border-left: 1px solid #fff;
 }
   
-footer > nav > ul > li > a {
+footer nav ul li a {
   color: #fff;
 }
 
@@ -196,14 +190,22 @@ footer > nav > ul > li > a {
   visibility: hidden;
 }
 
-
 /*****************
   MEDIA QUERIES
 ******************/
 
 @media screen and (min-width: 375px) {
+  main {
+    padding: 160px 0 200px 0;
+  }
   section {
     max-width: 316px;
+  }
+  section::after {
+    content: "§";
+    top: 25px;
+    display: block;
+    position: relative;
   }
   header h1 {
     z-index: 200;
@@ -212,6 +214,7 @@ footer > nav > ul > li > a {
     margin: -20px 0 0 10px;
   }
   header nav {
+    z-index: 1;
     width: 120%;
     margin: 54px auto 0 -40px;
   }
@@ -219,10 +222,10 @@ footer > nav > ul > li > a {
     display: block;
     text-align: left;
     padding: 6px 0 4px 10px;
-    border-bottom: 5px solid var(--med-gray);
+    border-bottom: 5px solid var(--gray);
   }
-  main section h3 {
-    padding: 160px 0 0 0;
+  header nav ul li:last-of-type {
+    padding: 6px 0 4px 10px;
   }
   header::before {
     content: "";
@@ -233,10 +236,10 @@ footer > nav > ul > li > a {
     width: 100%;
     height: 108px;
     pointer-events: none;
-    background-color: var(--header-gray);
+    background-color: var(--med-gray);
   }
   .logo {
-    opacity: .34;
+    opacity: .55;
     z-index: 100;
     height: 108px;
     background-color: var(--header-gray);
@@ -260,8 +263,17 @@ footer > nav > ul > li > a {
 }
 
 @media screen and (min-width: 768px) {
+  main {
+    padding: 120px 0 200px 0;
+  }
   section {
     max-width: 512px;
+  }
+  section::after {
+    content: "§";
+    top: 25px;
+    display: block;
+    position: relative;
   }
   header h1 {
     z-index: 200;
@@ -270,15 +282,16 @@ footer > nav > ul > li > a {
     margin: -20px auto 0 auto;
   }
   header nav {
+    z-index: 1;
     width: 100%;
     margin: 60px auto 0 auto;
   }
-  header > nav ul li {
+  header nav ul li {
     display: inline;
-    border-bottom: 4px solid var(--med-gray);
+    border-bottom: 4px solid var(--gray);
   }
-  main section h3 {
-    padding: 120px 0 0 0;
+  header nav ul li:last-of-type {
+    padding: 0 10px 4px 10px;
   }
   header::before {
     content: "";
@@ -289,10 +302,11 @@ footer > nav > ul > li > a {
     width: 100%;
     height: 110px;
     pointer-events: none;
-    background-color: var(--header-gray);
+    background-color: var(--med-gray);
   }
   .logo {
     z-index: 100;
+    opacity: .55;
     height: 110px;
     background-color: var(--header-gray);
     background-size: 400px;
@@ -314,9 +328,18 @@ footer > nav > ul > li > a {
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1025px) {
+  main {
+    padding: 350px 0 200px 0;
+  }
   section {
     max-width: 587px;
+  }
+  section::after {
+    content: "§";
+    top: 25px;
+    display: block;
+    position: relative;
   }
   header h1 {
     text-align: center;
@@ -324,17 +347,15 @@ footer > nav > ul > li > a {
   }
   header nav {
     width: 100%;
+    z-index: 1;
     margin: 280px auto 0 auto;
   }
-  header > nav ul li {
+  header nav ul li {
     display: inline;
+    border-bottom: 4px solid var(--gray);
   }
-  header > nav ul li {
-    display: inline;
-    border-bottom: 4px solid var(--med-gray);
-  }
-  main section h3 {
-    padding: 400px 0 0 0;
+  header nav ul li:last-of-type {
+    padding: 0 10px 4px 10px;
   }
   .logo {
     opacity: 1.0;
